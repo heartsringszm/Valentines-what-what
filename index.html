@@ -8,91 +8,84 @@
 
 <style>
 * { box-sizing: border-box; }
-
 body {
-    margin: 0;
-    height: 100vh;
-    background: radial-gradient(circle at top, #ffe6f0, #c3f2ff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #ffe6f0, #c3f2ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 
-/* Floating hearts */
+/* floating hearts */
 .heart {
-    position: absolute;
-    animation: float 8s linear infinite;
-    opacity: 0.7;
+    position: absolute;
+    animation: float 8s linear infinite;
+    opacity: 0.7;
 }
-
 @keyframes float {
-    0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1.4); opacity: 0; }
+    0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.4); opacity: 0; }
 }
 
-/* Card */
+/* card */
 .card {
-    background: rgba(255,255,255,0.9);
-    padding: 45px;
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-    max-width: 420px;
-    z-index: 3;
+    background: rgba(255,255,255,0.9);
+    padding: 45px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    max-width: 420px;
+    z-index: 3;
 }
 
-h1, h2 {
-    font-family: 'Playfair Display', serif;
-    color: #ff4d6d;
-}
-
+h1, h2 { font-family: 'Playfair Display', serif; color: #ff4d6d; }
 h1 { font-size: 34px; margin-bottom: 35px; }
 
 button {
-    padding: 16px 34px;
-    font-size: 18px;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    margin: 12px;
-    transition: all 0.3s ease;
+    padding: 16px 34px;
+    font-size: 18px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 12px;
+    transition: all 0.3s ease;
 }
 
 #yesBtn {
-    background: #ff4d6d;
-    color: white;
-    animation: pulse 1.5s infinite;
+    background: #ff4d6d;
+    color: white;
+    animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
 }
 
 #noBtn {
-    background: #adb5bd;
-    color: white;
-    position: absolute;
+    background: #adb5bd;
+    color: white;
+    position: absolute;
 }
 
 .hidden { display: none; }
 
 /* Fireworks */
 .firework {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    animation: explode 1.2s ease-out forwards;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: explode 1.2s ease-out forwards;
 }
-
 @keyframes explode {
-    0% { transform: scale(0); opacity: 1; }
-    100% { transform: translate(var(--x), var(--y)) scale(1); opacity: 0; }
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(1); opacity: 0; }
 }
 </style>
 </head>
@@ -102,41 +95,42 @@ button {
 <!-- Floating hearts -->
 <script>
 for (let i = 0; i < 18; i++) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
-    heart.style.animationDelay = Math.random() * 8 + "s";
-    document.body.appendChild(heart);
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDelay = Math.random() * 8 + "s";
+    document.body.appendChild(heart);
 }
 </script>
 
 <div class="card" id="questionCard">
-    <h1>Will you be my Valentine? 💘</h1>
-    <button id="yesBtn">Yes 💖</button>
-    <button id="noBtn">No 💔</button>
+    <h1>Will you be my Valentine? 💘</h1>
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 💔</button>
 </div>
 
 <div class="card hidden" id="finalCard">
-    <h2>I knew you’d say yes 💕</h2>
+    <h2>I knew you’d say yes 💕</h2>
 
-    <p>You just made this official.</p>
+    <p>You just made this official.</p>
 
-    <button onclick="toggleMusic()">⏯ Pause / Play</button>
+    <button onclick="toggleMusic()">⏯ Pause / Play</button>
 
-    <p>
-        I made you a playlist.  
-        <br><em>Ignoring it would be a crime against romance.</em> 💌
-    </p>
+    <p>
+        I made you a playlist.  
+        <br><em>Ignoring it would be a crime against romance.</em> 💌
+    </p>
 
-   https://open.spotify.com/playlist/3WoSlMQnDiZM33D7bcsMR0?si=70ID_iEqTCinWkXenzlSHA&pi=BTouSmgLQ2-X8
-        Open the playlist 🎧
-    </a>
+    <a href="https://open.spotify.com/playlist/3WoSlMQnDiZM33D7bcsMR0?si=sGB4yxYQSeOlm8-gusNPrg&pi=OaKfEdecT0-lh" target="_blank">
+        💿 Open my Spotify playlist
+    </a>
 </div>
 
 <audio id="song">
-    <source src="https://p.scdn.co/mp3-preview/7b52b9b9c1e5f5a29d1e0e1c3c92d1e5d8aefb61" type="audio/mpeg">
+    <!-- preview MP3 for "Let's Fall in Love for the Night" by Finneas -->
+    <source src="https://p.scdn.co/mp3-preview/7b52b9b9c1e5f5a29d1e0e1c3c92d1e5d8aefb61" type="audio/mpeg">
 </audio>
 
 <script>
@@ -152,53 +146,51 @@ let noTexts = ["No 💔", "Wait 😳", "Please 🥺", "Pretty please 😭", "PLE
 let noIndex = 0;
 
 noBtn.addEventListener("mouseover", () => {
-    noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
-    noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
+    noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
+    noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
 
-    noScale -= 0.12;
-    yesScale += 0.18;
+    noScale -= 0.12;
+    yesScale += 0.18;
 
-    noBtn.style.transform = `scale(${Math.max(noScale, 0.25)})`;
-    yesBtn.style.transform = `scale(${yesScale})`;
+    noBtn.style.transform = `scale(${Math.max(noScale, 0.25)})`;
+    yesBtn.style.transform = `scale(${yesScale})`;
 
-    if (noIndex < noTexts.length - 1) {
-        noIndex++;
-        noBtn.innerText = noTexts[noIndex];
-    }
+    if (noIndex < noTexts.length - 1) {
+        noIndex++;
+        noBtn.innerText = noTexts[noIndex];
+    }
 });
 
 yesBtn.addEventListener("click", () => {
-    questionCard.classList.add("hidden");
-    finalCard.classList.remove("hidden");
-    song.play();
-    launchFireworks();
+    questionCard.classList.add("hidden");
+    finalCard.classList.remove("hidden");
+    song.play();
+    launchFireworks();
 });
 
-/* Fireworks logic */
 function launchFireworks() {
-    for (let i = 0; i < 120; i++) {
-        const fw = document.createElement("div");
-        fw.className = "firework";
+    for (let i = 0; i < 120; i++) {
+        const fw = document.createElement("div");
+        fw.className = "firework";
+        const colors = ["#ff4d6d", "#ffd6e0", "#ffc2d1", "#ffe066"];
+        fw.style.background = colors[Math.floor(Math.random() * colors.length)];
 
-        const colors = ["#ff4d6d", "#ffd6e0", "#ffc2d1", "#ffe066"];
-        fw.style.background = colors[Math.floor(Math.random() * colors.length)];
+        const x = (Math.random() - 0.5) * 300 + "px";
+        const y = (Math.random() - 0.5) * 300 + "px";
 
-        const x = (Math.random() - 0.5) * 300 + "px";
-        const y = (Math.random() - 0.5) * 300 + "px";
+        fw.style.setProperty("--x", x);
+        fw.style.setProperty("--y", y);
 
-        fw.style.setProperty("--x", x);
-        fw.style.setProperty("--y", y);
+        fw.style.left = Math.random() * window.innerWidth + "px";
+        fw.style.top = Math.random() * window.innerHeight + "px";
 
-        fw.style.left = Math.random() * window.innerWidth + "px";
-        fw.style.top = Math.random() * window.innerHeight + "px";
-
-        document.body.appendChild(fw);
-        setTimeout(() => fw.remove(), 1200);
-    }
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 1200);
+    }
 }
 
 function toggleMusic() {
-    song.paused ? song.play() : song.pause();
+    song.paused ? song.play() : song.pause();
 }
 </script>
 
