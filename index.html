@@ -33,13 +33,18 @@ body {
 
 /* card */
 .card {
-    background: rgba(255,255,255,0.9);
-    padding: 45px;
-    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.7); 
+    backdrop-filter: blur(10px);
+    padding: 30px; /* Reduced slightly for mobile */
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    display: inline-block; 
+    max-width: 85%;
     text-align: center;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-    max-width: 420px;
-    z-index: 3;
+    position: relative;
+    z-index: 10;
+    transition: all 0.5s ease;
 }
 
 h1, h2 { font-family: 'Playfair Display', serif; color: #ff4d6d; }
@@ -116,7 +121,7 @@ for (let i = 0; i < 18; i++) {
 
     <p>You just made this official.</p>
 
-    <button onclick="toggleMusic()">⏯ Pause / Play</button>
+    <button id="musicToggleBtn">Stop Music 🔇</button>
 
     <p>
         I made you a playlist.  
@@ -130,7 +135,7 @@ for (let i = 0; i < 18; i++) {
 
 <audio id="song">
     <!-- preview MP3 for "Let's Fall in Love for the Night" by Finneas -->
-    <source src="https://cdn.discordapp.com/attachments/1174443993770237994/1469369037396901959/Kay_2.mp3?ex=6987680e&is=6986168e&hm=70ea15beb37fed918743c515adf6f5998ca96028a95e8d00ee1571262ab9bcbb&">
+    <source src="https://cdn.discordapp.com/attachments/1174443993770237994/1469369029025075316/Kay_1.mp3?ex=6987680c&is=6986168c&hm=669619929c282245ea5f1ef8a53d048b2fcaa5290fdbcf34c954a0500c28f08c&">
 </audio>
 
 <script>
